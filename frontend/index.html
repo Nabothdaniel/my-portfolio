@@ -116,7 +116,10 @@
       <a href="#contact" class="bg-secondary text-primary hover:bg-opacity-90 font-semibold py-2 px-5 rounded-md transition-all btn-hover">Contact</a>
     </div>
   </header>
-
+<!-- Full-page loading overlay -->
+<div id="loading-overlay" class="fixed inset-0 z-50 flex items-center justify-center bg-white bg-opacity-80 transition-opacity duration-300">
+  <div class="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-blue-500"></div>
+</div>
   <!-- Hero Section -->
   <section class="min-h-screen flex items-center justify-center bg-primary text-white px-6">
     <div class="text-center max-w-2xl animate-fade-in">
@@ -451,6 +454,7 @@
     </div>
   </footer>
 
-  <script src="./index.js" defer></script>
+  <script src="./js/util.js" defer></script>
+  <script src="./js/index.js" defer></script>
 </body>
 </html>
