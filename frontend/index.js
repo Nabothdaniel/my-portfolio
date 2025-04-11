@@ -30,6 +30,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 //submits the form and sends the eamil from the backend with nodemailer
 const contactForm = document.getElementById('contact-form');
+let spinner = document.querySelector('#spinner')
+let submitBtn = document.querySelector('#submit-btn')
+
+submitBtn.disabled = true;
+  btnText.textContent = 'Sending...';
+  spinner.style.display = 'inline-block';
 
 contactForm.addEventListener('submit',async (event)=>{
   event.preventDefault();

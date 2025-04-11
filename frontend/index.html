@@ -419,9 +419,10 @@
               <label for="message" class="block mb-2 font-medium">Message</label>
               <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-all"></textarea>
             </div>
-            <button type="submit" class="w-full bg-accent hover:bg-blue-600 text-white font-semibold mt-5 py-3 px-6 rounded-lg transition-all btn-hover shadow-sm">
-              Send Message
-            </button>
+              <button type="submit" id="submit-btn" class="w-full bg-accent hover:bg-blue-600 text-white font-semibold mt-5 py-3 px-6 rounded-lg transition-all btn-hover shadow-sm">
+                <span id="btnText">Send Message</span>
+                <i id="spinner" class="fas fa-spinner fa-spin" style="display: none;"></i>
+              </button>
             <div id="response-msg"></div>
           </form>
         </div>
