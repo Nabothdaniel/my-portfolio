@@ -2,7 +2,8 @@
 
   "type": "module",
   "scripts":{
-    "dev":"npx nodemon index.js"
+    "start":"npx nodemon index.js",
+    "dev":"nodemon index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
