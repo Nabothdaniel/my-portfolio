@@ -28,6 +28,49 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+//submits the form and sends the eamil from the backend with nodemailer
+const contactForm = document.getElementById('contact-form');
+
+contactForm.addEventListener('submit',async (event)=>{
+  event.preventDefault();
+  console.log('submitted');
+let name = document.getElementById('name').value;
+let email = document.getElementById('email').value;
+let subject = document.getElementById('subject').value;
+let message = document.getElementById('message').value;
+  
+   try{
+
+    //sends the actual request to the backend
+    const res = await fetch('http://localhost:5000/contact',{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json'
+      },
+      body: JSON.stringify({name,email,subject,message})
+    })
+
+
+    const data =  await res.json();
+
+
+    document.getElementById('response-msg').textContent = data.message
+    document.getElementById('response-msg').style.color = res.ok ? 'green' : 'green';
+
+   name = document.getElementById('name').value = ''
+   email = document.getElementById('email').value =''
+   subject = document.getElementById('subject').value = ''
+   message = document.getElementById('message').value = ''
+
+  
+   } catch(error){
+    document.getElementById('response-msg').textContent = 'Failed to send message.';
+    document.getElementById('response-msg').style.color = 'red';
+    console.error('Error:', error);
+   }
+   
+})
+
 // Animation on scroll
 const animateOnScroll = () => {
   const elements = document.querySelectorAll('.project-card, .skill-card');

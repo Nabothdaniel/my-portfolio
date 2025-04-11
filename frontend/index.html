@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daniel – Full Stack Developer</title>
+  <title>Daniel - Full Stack Developer</title>
   <meta name="description" content="Professional Full Stack Developer with 5+ years experience in web development and system architecture">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -131,18 +131,6 @@
         </a>
       </div>
     </div>
-  </section>
-
-  <section class="max-w-2xl m-auto py-2rem">
-    <!-- Change your form opening tag to this: -->
-<form action="https://formsubmit.co/nabothdaniel35@gmail.com" method="POST" class="space-y-4">
-  <!-- Add a hidden input for the redirect page after submission -->
-  <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
-  <!-- Add a hidden input for the subject that will appear in your email -->
-  <input type="hidden" name="_subject" value="New contact form submission">
-  <!-- Add honeypot field to prevent spam -->
-  <input type="text" name="_honey" style="display:none">
-  <!-- Rest of your form fields remain the same -->
   </section>
 
   <!-- About Me -->
@@ -366,7 +354,7 @@
               </div>
               <div>
                 <h4 class="font-semibold">Email</h4>
-                <a href="mailto:daniel@example.com" class="text-gray-600 hover:text-accent transition-colors">nabothdaniel35@gmail.com</a>
+                <a href="#" class="text-gray-600 hover:text-accent transition-colors">nabothdaniel35@gmail.com</a>
               </div>
             </div>
             
@@ -376,7 +364,7 @@
               </div>
               <div>
                 <h4 class="font-semibold">Phone</h4>
-                <a href="tel:+1234567890" class="text-gray-600 hover:text-accent transition-colors">+234 7064936543</a>
+                <a href="tel:+2347064936543" class="text-gray-600 hover:text-accent transition-colors">+234 7064936543</a>
               </div>
             </div>
             
@@ -414,7 +402,7 @@
         </div>
         
         <div>
-          <form class="space-y-4">
+          <form class="space-y-4" id="contact-form">
             <div>
               <label for="name" class="block mb-2 font-medium">Name</label>
               <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-all">
@@ -431,9 +419,10 @@
               <label for="message" class="block mb-2 font-medium">Message</label>
               <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-all"></textarea>
             </div>
-            <button type="submit" class="w-full bg-accent hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-all btn-hover shadow-sm">
+            <button type="submit" class="w-full bg-accent hover:bg-blue-600 text-white font-semibold mt-5 py-3 px-6 rounded-lg transition-all btn-hover shadow-sm">
               Send Message
             </button>
+            <div id="response-msg"></div>
           </form>
         </div>
       </div>

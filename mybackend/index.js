@@ -26,15 +26,16 @@ app.post('/contact',async (req,res)=>{
         auth: {
             user: process.env.USER_EMAIL,
             pass: process.env.USER_PASS,
-        }
+        },
+        debug:true,
+        logger:true
        
     })
 
-    console.log('EMAIL:', process.env.USER_EMAIL);
-    console.log('PASS:', process.env.USER_PASS);
+   
     const mailOptions ={
         from: email,
-        to: 'nabothdaniel35@gmail.com',
+        to: 'nabothdaniel44@gmail.com',
         subject: `New Contact Form Message: ${subject}`,
         text: `From: ${name}\nEmail: ${email}\n\n${message}`,
     }
