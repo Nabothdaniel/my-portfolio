@@ -24,14 +24,14 @@ app.post('/contact',async (req,res)=>{
     const transporter = nodemailer.createTransport({
         service:'gmail',
         auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS,
+            user: process.env.USER_EMAIL,
+            pass: process.env.USER_PASS,
         }
        
     })
 
-    console.log('EMAIL:', process.env.EMAIL_USER);
-    console.log('PASS:', process.env.EMAIL_PASS);
+    console.log('EMAIL:', process.env.USER_EMAIL);
+    console.log('PASS:', process.env.USER_PASS);
     const mailOptions ={
         from: email,
         to: 'nabothdaniel35@gmail.com',
