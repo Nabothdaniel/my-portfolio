@@ -21,7 +21,7 @@ app.get('/',(req,res)=>{
 app.post('/contact',async (req,res)=>{
     const {name,email,subject,message} = req.body;
 
-    const transporter = nodemailer.createTransport({
+    const transporter =  nodemailer.createTransport({
         service:'gmail',
         auth: {
             user: process.env.USER_EMAIL,
