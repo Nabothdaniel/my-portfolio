@@ -33,54 +33,53 @@ const contactForm = document.getElementById('contact-form');
 let spinner = document.querySelector('#spinner')
 let submitBtn = document.querySelector('#submit-btn')
 
-submitBtn.disabled = true;
+    
+
+contactForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  
+  // Set loading state
+  submitBtn.disabled = true;
   btnText.textContent = 'Sending...';
   spinner.style.display = 'inline-block';
 
-contactForm.addEventListener('submit',async (event)=>{
-  event.preventDefault();
-  console.log('submitted');
-let name = document.getElementById('name').value;
-let email = document.getElementById('email').value;
-let subject = document.getElementById('subject').value;
-let message = document.getElementById('message').value;
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const subject = document.getElementById('subject').value;
+  const message = document.getElementById('message').value;
   
-   try{
+  try {
+    const res = await fetch('http://localhost:5000/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, subject, message })
+    });
 
-    //sends the actual request to the backend
-    const res = await fetch('http://localhost:5000/contact',{
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json'
-      },
-      body: JSON.stringify({name,email,subject,message})
-    })
+    const data = await res.json();
+    
+    // Update response message
+    document.getElementById('response-msg').textContent = data.message;
+    document.getElementById('response-msg').style.color = res.ok ? 'green' : 'red';
 
+    // Only reset form if successful
+    if (res.ok) {
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('subject').value = '';
+      document.getElementById('message').value = '';
+    }
 
-    const data =  await res.json();
-
-
-    document.getElementById('response-msg').textContent = data.message
-    document.getElementById('response-msg').style.color = res.ok ? 'green' : 'green';
-
-   name = document.getElementById('name').value = ''
-   email = document.getElementById('email').value =''
-   subject = document.getElementById('subject').value = ''
-   message = document.getElementById('message').value = ''
-
-  
-   } catch(error){
+  } catch(error) {
     document.getElementById('response-msg').textContent = 'Failed to send message.';
     document.getElementById('response-msg').style.color = 'red';
     console.error('Error:', error);
-   } finally {
-     // Re-enables button and hides spinner
-     submitBtn.disabled = false;
-     btnText.textContent = 'Send Message';
-     spinner.style.display = 'none';
-   }
-   
-})
+  } finally {
+    // Always reset loading state
+    submitBtn.disabled = false;
+    btnText.textContent = 'Send Message';
+    spinner.style.display = 'none';
+  }
+});
 
 // Animation on scroll
 const animateOnScroll = () => {
