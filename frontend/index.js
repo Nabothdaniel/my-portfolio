@@ -73,6 +73,11 @@ let message = document.getElementById('message').value;
     document.getElementById('response-msg').textContent = 'Failed to send message.';
     document.getElementById('response-msg').style.color = 'red';
     console.error('Error:', error);
+   } finally {
+     // Re-enables button and hides spinner
+     submitBtn.disabled = false;
+     btnText.textContent = 'Send Message';
+     spinner.style.display = 'none';
    }
    
 })
